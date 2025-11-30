@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Callback</title>
+</head>
+<body>
+    <h2>Processando autenticação...</h2>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        
+        if (code) {
+            // Enviar código para o Second Life (precisa de um backend)
+            document.body.innerHTML = `<h2>Código: ${code}</h2><p>Copie e use no SL: /22 code ${code}</p>`;
+        }
+    </script>
+</body>
+</html>

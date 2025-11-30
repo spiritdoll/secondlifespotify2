@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify Auth</title>
+    <style>
+        body { background: #121212; color: white; font-family: Arial; text-align: center; padding: 50px; }
+        .btn { background: #1DB954; color: white; padding: 15px 30px; border: none; border-radius: 25px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🎵 Conectar Spotify</h1>
+    <button class="btn" onclick="startAuth()">Vincular Conta</button>
+    
+    <script>
+        function startAuth() {
+            const clientId = '4aa4b602f6974976a1c5290a76406e2f';
+            const redirectUri = window.location.href + 'callback.html';
+            const scope = 'user-read-currently-playing user-read-playback-state';
+            const state = Math.random().toString(36).substring(7);
+            
+            const authUrl = `https://accounts.spotify.com/authorize?response_type=code&client_id=${clientId}&scope=${encodeURIComponent(scope)}&redirect_uri=${encodeURIComponent(redirectUri)}&state=${state}`;
+            window.location.href = authUrl;
+        }
+    </script>
+</body>
+</html>
